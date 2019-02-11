@@ -15,21 +15,23 @@ Installation
 -------------
 This template tag is ultralite :muscle: so you dont even need to bother installing it as an app. Just create a ``templatetags`` directory within your app directory at the same level as your ``models.py`` file. Then create the ``__init__.py`` and ``tweet_tags.py`` files. All of this can be copied from the repo  :wink:.
 
-Django_docs_ 
+Djangodocs_ 
 ::
 
     appfolder/
-    __init__.py
-    models.py
-    templatetags/ #create this if you dont have one already.
-        __init__.py #create this! It's just an empty file but all template tags require it!!
-        tweet_tags.py #you get the idea...it's in the repo.
-    views.py
+        __init__.py
+        models.py
+        views.py
+        templatetags/ #create this if you dont have one already.
+            __init__.py #create this! It's just an empty file but all template tags require it!!
+            tweet_tags.py #you get the idea...it's in the repo.
 
+Djangodocs_
 As with any new template tag you should restart the server to ensure the tag is registered.
 
 Usage
 -----
+To use the tag in your template include the ``{% load tweet_tags %}`` in your template and you are good to go! Just use the tag and give it a url.
 ::
 
   {% tweet_tags <tweeturl> %}
@@ -37,10 +39,12 @@ Usage
 
 ``<tweeturl>`` is the url to the tweet to be embedded on your page.
 
-``{% autoescape off %}`` ``{% endautoescape %}`` tags can be wrapped around the ``{% tweet_tags <tweeturl> %}`` to stop the html from being escaped by the django interpreter.
+``{% autoescape off %}`` ``{% endautoescape %}`` tags can be wrapped around the ``{% tweet_tags <tweeturl> %}`` to stop the html from being escaped by the django interpreter. This is neccesary unless you already have the django environment variable turned off.
 
 
-Example ``template.html``::
+Example ``template.html``: This will loop through the "tweets" queryset defined in the view. Send the url of each tweet object to the tag function and return the embed html into the ``mdl-card`` div in the template.
+
+::
 
   {% load tweet_tags %}
   
