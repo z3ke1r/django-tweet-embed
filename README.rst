@@ -43,7 +43,7 @@ To use the tag in your template include the ``{% load tweet_tags %}`` in your te
 
 Example: 
 
-This will loop through the "tweets" queryset defined in the view. Send the url of each tweet object to the tag function and return the embed html into the ``mdl-card`` div in the template.
+This will loop through the ``tweets`` queryset defined in the view. Send the url of each tweet object to the tag function and return the embed html into the ``mdl-card`` div in the template.
 
 ``template.html``
 ::
