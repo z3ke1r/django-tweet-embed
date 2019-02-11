@@ -15,7 +15,6 @@ Installation
 -------------
 This template tag is ultralite :muscle: so you dont even need to bother installing it as an app. Just create a ``templatetags`` directory within your app directory at the same level as your ``models.py`` file. Then create the ``__init__.py`` and ``tweet_tags.py`` files. All of this can be copied from the repo  :wink:.
 
-Djangodocs_ 
 ::
 
     appfolder/
