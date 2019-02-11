@@ -1,19 +1,31 @@
 Django Tweet Embed
 ======================================
 
-Provides templatetags for:
-* 'Embedding a tweet'
-
-Takes a tweet url, requests the ``json`` from Twitter oEmbed, parses the ``json`` for the ``html`` element and returns it to your template. The html returned is ready to go and will be shown as a tweet on your web page.
+Takes a tweet url, requests the ``json`` from Twitter oEmbed, parses the ``json`` for the ``html`` element and returns it to your template. The html returned is ready to go and will be shown as a tweet on your web page. This uses the .. _Requests: https://pypi.org/project/requests/ library for Python.
 
 
-Requirements
+Python Requirements
 -------------
 
 ::
 
     $ pip install requests
 
+Installation
+-------------
+This template tag is ultralite :muscle: so you dont even need to bother installing it as an app. Just create a ``templatetags`` directory within your app directory at the same level as your ``models.py`` file. Then create the ``__init__.py`` and ``tweet_tags.py`` files. All of this can be copied from the repo  :wink:.
+
+_Django_Docs: https://docs.djangoproject.com/en/2.2/howto/custom-template-tags/#code-layout
+::
+appfolder/
+    __init__.py
+    models.py
+    templatetags/ #create this if you dont have one
+        __init__.py #create this if you dont have one. It's just an empty file but all template tags require it!!
+        tweet_tags.py #
+    views.py
+
+As with any new template tag you should restart the server to ensure the tag is registered.
 
 Usage
 -----
@@ -22,7 +34,7 @@ Usage
   {% tweet_tags <tweeturl> %}
   
 
-``<tweeturl>`` may contain any tweets url.
+``<tweeturl>`` is the url to the tweet to be embedded on your page.
 
 ``{% autoescape off %}`` ``{% endautoescape %}`` tags can be wrapped around the ``{% tweet_tags <tweeturl> %}`` to stop the html from being escaped by the django interpreter.
 
