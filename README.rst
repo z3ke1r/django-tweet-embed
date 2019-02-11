@@ -25,7 +25,7 @@ This template tag is ultralite :muscle: so you dont even need to bother installi
             __init__.py #create this! It's just an empty file but all template tags require it!!
             tweet_tags.py #you get the idea...it's in the repo.
 
-Djangodocs_
+DjangoDocs_
 As with any new template tag you should restart the server to ensure the tag is registered.
 
 Usage
@@ -36,13 +36,16 @@ To use the tag in your template include the ``{% load tweet_tags %}`` in your te
   {% tweet_tags <tweeturl> %}
   
 
-``<tweeturl>`` is the url to the tweet to be embedded on your page.
+``<tweeturl>`` is the url to the tweet you want embedded on your page. It can be hard coded or a variable passed from your view.
 
 ``{% autoescape off %}`` ``{% endautoescape %}`` tags can be wrapped around the ``{% tweet_tags <tweeturl> %}`` to stop the html from being escaped by the django interpreter. This is neccesary unless you already have the django environment variable turned off.
 
 
-Example ``template.html``: This will loop through the "tweets" queryset defined in the view. Send the url of each tweet object to the tag function and return the embed html into the ``mdl-card`` div in the template.
+Example: 
 
+This will loop through the "tweets" queryset defined in the view. Send the url of each tweet object to the tag function and return the embed html into the ``mdl-card`` div in the template.
+
+``template.html``
 ::
 
   {% load tweet_tags %}
@@ -54,6 +57,16 @@ Example ``template.html``: This will loop through the "tweets" queryset defined 
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
 
+``views.py``
+::
+
+  def template(request):
+    if request.user.is_authenticated:
+        tweets = tweet.objects.filter(user=request.user)
+        return render(request, 'app/template.html', {'tweets': tweets})
+    else:
+        return redirect('login')
+
 
 .. _Requests: https://pypi.org/project/requests/
-.. _Django_Docs: https://docs.djangoproject.com/en/2.2/howto/custom-template-tags/#code-layout
+.. _DjangoDocs: https://docs.djangoproject.com/en/2.2/howto/custom-template-tags/#code-layout
