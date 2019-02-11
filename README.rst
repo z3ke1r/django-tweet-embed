@@ -25,7 +25,7 @@ This template tag is ultralite :muscle: so you dont even need to bother installi
             __init__.py #create this! It's just an empty file but all template tags require it!!
             tweet_tags.py #you get the idea...it's in the repo.
 
-DjangoDocs_
+DjangoDocs_  
 As with any new template tag you should restart the server to ensure the tag is registered.
 
 Usage
@@ -56,6 +56,7 @@ This will loop through the "tweets" queryset defined in the view. Send the url o
           {% autoescape off %}{% tweet_tags x.url %}{% endautoescape %}
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
+  {% endfor %}
 
 ``views.py``
 ::
