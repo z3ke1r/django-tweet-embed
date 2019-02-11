@@ -1,7 +1,7 @@
 Django Tweet Embed
 ======================================
 
-Takes a tweet url, requests the ``json`` from Twitter oEmbed, parses the ``json`` for the ``html`` element and returns it to your template. The html returned is ready to go and will be shown as a tweet on your web page. This uses the .._Requests: https://pypi.org/project/requests/ library for Python.
+Takes a tweet url, requests the ``json`` from Twitter oEmbed, parses the ``json`` for the ``html`` element and returns it to your template. The html returned is ready to go and will be shown as a tweet on your web page. This uses the Requests_ library for Python.
 
 
 Python Requirements
@@ -15,7 +15,7 @@ Installation
 -------------
 This template tag is ultralite :muscle: so you dont even need to bother installing it as an app. Just create a ``templatetags`` directory within your app directory at the same level as your ``models.py`` file. Then create the ``__init__.py`` and ``tweet_tags.py`` files. All of this can be copied from the repo  :wink:.
 
-.._Django_Docs: https://docs.djangoproject.com/en/2.2/howto/custom-template-tags/#code-layout
+Django_docs_ 
 ::
 
     appfolder/
@@ -52,10 +52,5 @@ Example ``template.html``::
       </div>
 
 
-Templates
----------
-
-Templates are in:
-
-* ``django/templatetags/``
-
+.. _Requests: https://pypi.org/project/requests/
+.. _Django_Docs: https://docs.djangoproject.com/en/2.2/howto/custom-template-tags/#code-layout
