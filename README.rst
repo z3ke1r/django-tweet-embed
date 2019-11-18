@@ -51,9 +51,9 @@ This will loop through the ``tweets`` queryset defined in the view. Send the url
   {% load tweet_tags %}
   
   
-  {% for x in tweets %}
+  {% for tweet in tweets %}
       <div class="mdl-card__media">
-          {% autoescape off %}{% tweet_tags x.url %}{% endautoescape %}
+          {% autoescape off %}{% tweet_tags tweet.url %}{% endautoescape %}
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
   {% endfor %}
